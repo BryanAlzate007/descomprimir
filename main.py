@@ -1,14 +1,10 @@
-from zipfile import ZipFile
+import os
+import glob
 
-def descomprimir():
-    archivo = "C:\\Users\\USER2021\\GREENFIELD\\*.zip"
-    with ZipFile(file = archivo, mode = "r", allowZip64=True) as file:
-        archivo = file.open(name = file.namelist()[0], mode = "r")
-        print(archivo.read())
-        archivo.close()
+print("descomprimir archivos con python")
+ruta = r'home/bryan-ubuntu/Documentos/usb'
 
-        navegacion = "C:\\Users\\USER2021\\GREENFIELD"
-        print("Descomprimiendo")
-        file.extractall(path = navegacion)
-        print("archivo descomprimido")
-descomprimir()
+extencion = '*.zip'
+listaDeArchivos = glob.glob(ruta + os.sep + extencion)
+
+print(listaDeArchivos)
